@@ -23,7 +23,7 @@ return new class extends Migration
             $table->string('starting_station', 100);
 
             // Aggiungo la colonna per la data di partenza
-            $table->date('date')->format('d-m-Y');
+            $table->date('date')->format('Y-m-d');
 
             // Aggiungo colonne per l'ora di partenza e arrivo
             $table->time('departure_time')->format('H:i');
@@ -32,8 +32,8 @@ return new class extends Migration
             // Aggiungo colonna per numero carrozze
             $table->tinyInteger('number_of_carriages')->unsigned();
 
-            $table->boolean('on-time');
-            $table->boolean('on-delay');
+            $table->boolean('on_time');
+            $table->boolean('on_delay');
             $table->boolean('cancelled');
 
         });
