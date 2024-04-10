@@ -24,7 +24,7 @@
     <main>
         <div class="container py-5">
 
-            <h3>Treni in partenza</h3>
+            <h3>Treni in partenza dal 10 Aprile 2024:</h3>
 
             <table class="table">
                 <thead>
