@@ -15,9 +15,27 @@ return new class extends Migration
             $table->id();
             $table->timestamps();
 
+            // Aggiungo colonna per codice treno
+            $table->string('train_code', 30);
+
+            // Aggiungo le colonne per azienda e stazione
             $table->string('company', 100);
             $table->string('starting_station', 100);
-            $table->string('identification_code', 30);
+
+            // Aggiungo la colonna per la data di partenza
+            $table->date('date')->format('d-m-Y');
+
+            // Aggiungo colonne per l'ora di partenza e arrivo
+            $table->time('departure_time')->format('H:i');
+            $table->time('arrival_time')->format('H:i');
+
+            // Aggiungo colonna per numero carrozze
+            $table->tinyInteger('number_of_carriages')->unsigned();
+
+            $table->boolean('on-time');
+            $table->boolean('on-delay');
+            $table->boolean('cancelled');
+
         });
     }
 
