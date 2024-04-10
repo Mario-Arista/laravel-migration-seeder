@@ -5,21 +5,55 @@
 @endsection
 
 @section('content')
-    <div class="container">
-        <h1 class="text-white">
-            Lista di treni diponibili da oggi:
-        </h1>
-        @foreach ($trains as $train)
-            <div class="train text-white">
-                Compagnia: {{ $train->company }}
-                Stazione: {{ $train->starting_station }}
-                Prezzo: {{ $train->price }}
-                Data di partenza: {{ $train->date }}
-                Orario di partenza: {{ $train->departure_time }}
-                Orario di arrivo: {{ $train->arrival_time }}
+    <header class="bg-white">
+        <div class="container d-flex justify-content-start align-items-center gap-2">
+            <img src="https://logowik.com/content/uploads/images/trenitalia4947.logowik.com.webp" alt="LOGO TRENITALIA">
+            <div>
+                <h1>
+                    Trenitalia!
+                </h1>
+                <h2>
+                    Il rirardo è il nostro mantra!
+                </h2>
             </div>
-        @endforeach
 
-    </div>
+        </div>
 
+    </header>
+
+    <main>
+        <div class="container py-5">
+
+            <h3>Treni in partenza</h3>
+
+            <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col">Codice treno</th>
+                    <th scope="col">Compagnia</th>
+                    <th scope="col">Stazione</th>
+                    <th scope="col">Data di partenza</th>
+                    <th scope="col">Prezzo</th>
+                    <th scope="col">Orario di partenza</th>
+                    <th scope="col">Orario di arrivo</th>
+                  </tr>
+                </thead>
+                <tbody>
+                @foreach ($trains as $train)
+                  <tr>
+                    <td><strong>{{ $train->train_code }}</strong></td>
+                    <td>{{ $train->company }}</td>
+                    <td>{{ $train->starting_station }}</td>
+                    <td>{{ $train->date }}</td>
+                    <td>{{ $train->price }}€</td>
+                    <td>{{ substr($train->departure_time, 0, 5) }}</td>
+                    <td>{{ substr($train->arrival_time, 0, 5) }}</td>
+                  </tr>
+                @endforeach
+                </tbody>
+              </table>
+    
+        </div>
+    </main>
+    
 @endsection
