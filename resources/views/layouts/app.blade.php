@@ -11,7 +11,7 @@
     
 </head>
 
-<body>
+<body class="bg-dark">
     @yield('content')
 </body>
 </html>
